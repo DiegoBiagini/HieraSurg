@@ -14,7 +14,14 @@ $(document).ready(function() {
     }
 
 		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    var carousel_images = bulmaCarousel.attach('#images-carousel', options);
+
+
+	var options = {
+		infinite: false,
+		autoplay: false,
+	}
+	var carousel_videos = bulmaCarousel.attach('#videos-carousel', options);
 	
     bulmaSlider.attach();
 
