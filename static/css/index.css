@@ -143,6 +143,11 @@ body {
 
 }
 
+.header {
+  margin-bottom: 0rem;
+
+}
+
 /* Your actual max-height for bigger logos */
 .logo {
   max-height: 2rem;    /* ← adjust this value as needed */
