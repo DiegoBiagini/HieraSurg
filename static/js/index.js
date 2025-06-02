@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 })
 
-
+/*
 document
   .querySelector('#videos-carousel')
   .addEventListener('carousel:show', function(e){
@@ -53,3 +53,4 @@ document
       };
     }
   });
+*/
