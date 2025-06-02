@@ -138,8 +138,8 @@ body {
 /* Container keeps the Bulma .image styling (for centering, etc.) */
 .logo-container {
   display: inline-block; /* so it shrinks to the img inside */
-  border-left-width: 0.5rem;
-  border-right-width: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 
 }
 
