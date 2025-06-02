@@ -15,6 +15,7 @@ $(document).ready(function() {
 
 		// Initialize all div with carousel class
     var carousel_images = bulmaCarousel.attach('#images-carousel', options);
+    bulmaSlider.attach();
 
 
 	var options_videos = {
