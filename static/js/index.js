@@ -17,13 +17,14 @@ $(document).ready(function() {
     var carousel_images = bulmaCarousel.attach('#images-carousel', options);
 
 
-	var options = {
+	var options_videos = {
 		slidesToScroll: 1,
 		slidesToShow: 1,		
+		loop: true,
 		infinite: false,
 		autoplay: false,
 	}
-	var carousel_videos = bulmaCarousel.attach('#videos-carousel', options);
+	var carousel_videos = bulmaCarousel.attach('#videos-carousel', options_videos);
 	
     bulmaSlider.attach();
 
