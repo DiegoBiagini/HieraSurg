@@ -142,7 +142,7 @@ body {
 
 /* Your actual max-height for bigger logos */
 .logo {
-  max-height: 5rem;    /* ← adjust this value as needed */
+  max-height: 2rem;    /* ← adjust this value as needed */
   width: auto;         /* preserves aspect ratio */
   display: block;      /* removes inline-img descender gap */
 }
