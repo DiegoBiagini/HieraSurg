@@ -1,0 +1,7 @@
+ultralytics
+opencv-python
+scikit-learn
+timm
+einops
+transformers
+open-clip-torch
