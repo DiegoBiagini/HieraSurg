@@ -81,10 +81,10 @@ videos/
 └── ...
 ```
 
-To extract individual frames at a certain frame rate use the script:
+To extract individual frames at a certain frame rate use the script:  
 ```python tools/cholec_video_extract_parallel.py videos_in videos 1 --with_fix```
 
-And in case you have PNG files(CholecT45 dataset) use the script `labeler/to_jpg_folder.py`
+And in case you have PNG files(CholecT45 dataset) use `labeler/to_jpg_folder.py`
 
 
 ### Automatic Labeling Pipeline
@@ -141,7 +141,7 @@ videos/
 │   └── ...
 └── ...
 ```
-Not all videos of Cholec80 were processed and used, data splits can be found in train_videos.txt and val_videos.txt.  
+Not all videos of Cholec80 were processed and used, data splits can be found in `train_videos.txt` and `val_videos.txt`.  
 
 ## File Structure
 
