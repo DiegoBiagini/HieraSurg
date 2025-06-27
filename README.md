@@ -1,5 +1,5 @@
 # HieraSurg
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-B31B1B.svg)](https://arxiv.org/abs/2506.21207)
+[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-B31B1B.svg)](https://arxiv.org/abs/2506.21207)  
 Early Accepted at MICCAI 2025
 
 HieraSurg is a video diffusion model that is able to generate realistic .
@@ -94,7 +94,7 @@ REPOSITORY_NAME/
 
 ## Citation
 If you find this work useful, please cite our paper:
-
+```bibtex
 @misc{biagini2025hierasurghierarchyawarediffusionmodel,
       title={HieraSurg: Hierarchy-Aware Diffusion Model for Surgical Video Generation}, 
       author={Diego Biagini and Nassir Navab and Azade Farshad},
@@ -104,5 +104,7 @@ If you find this work useful, please cite our paper:
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2506.21287}, 
 }
+```
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+
+This code may be used for **non-commercial scientific research purposes** as defined by [Creative Commons 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). By downloading and using this code you agree to the terms in the [LICENSE](LICENSE). 
