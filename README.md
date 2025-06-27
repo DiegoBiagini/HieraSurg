@@ -3,8 +3,8 @@
 
 Early Accepted at MICCAI 2025
 
-HieraSurg is a video diffusion model that is able to generate realistic surgical videos.
-It achieves this by decoupling the generation process in two semantic levels, first Hierasurg-Semantic2Map generates the evolution of a surgical scene in panoptic-segmentation-space, given surgical information like phase and interaction triplet.
+HieraSurg is a pair of video diffusion model based on CogVideoX, enabling the realistic generation of surgical videos.
+Video generation is achieved by decoupling the generation process in two semantic levels, first Hierasurg-Semantic2Map generates the evolution of a surgical scene in panoptic-segmentation-space, given surgical information like phase and interaction triplet.
 Once a temporal set of segmentation maps is available HieraSurg-Map2Vid is able to bring them to video space to visualize the actual evolution of the surgical scene.
 
 This repository contains the code used to train the VDMs as well as the procedure to obtain panoptic segmentation maps from Cholec80.
