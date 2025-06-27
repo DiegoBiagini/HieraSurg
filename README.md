@@ -1,5 +1,5 @@
-# HieraSurg
-[![arXiv](https://img.shields.io/badge/arXiv-2506.21207-B31B1B.svg)](https://arxiv.org/abs/2506.21207)  
+# HieraSurg: Hierarchy-Aware Diffusion Model for Surgical Video Generation
+[![arXiv](https://img.shields.io/badge/arXiv-2506.21287-B31B1B.svg)](https://arxiv.org/abs/2506.21287)  
 Early Accepted at MICCAI 2025
 
 HieraSurg is a video diffusion model that is able to generate realistic .
