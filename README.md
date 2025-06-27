@@ -2,7 +2,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2506.21287-B31B1B.svg)](https://arxiv.org/abs/2506.21287)  
 Early Accepted at MICCAI 2025
 
-HieraSurg is a video diffusion model that is able to generate realistic .
+HieraSurg is a video diffusion model that is able to generate realistic surgical videos.
 It achieves this by decoupling the generation process in two semantic levels, first Hierasurg-Semantic2Map generates the evolution of a surgical scene in panoptic-segmentation-space, given surgical information like phase and interaction triplet.
 Once a temporal set of segmentation maps is available HieraSurg-Map2Vid is able to bring them to video space to visualize the actual evolution of the surgical scene.
 
@@ -20,9 +20,9 @@ This repository contains the code used to train the VDMs as well as the procedur
 
 ## Features
 
-- Labeling procedure for CholecT45/Cholec80
-- Training code for HieraSurg (S2M and M2V)
-- Inference with/without GT segmentation maps
+- Labeling procedure for CholecT50/Cholec80 DONE
+- Training code for HieraSurg (S2M and M2V) TODO
+- Inference with/without GT segmentation maps TODO (upload weights)
 
 ## Installation
 
@@ -64,14 +64,84 @@ python scripts/infer.py \
 
 ## Dataset
 
-All the data used is from Cholec80 TODO link and CholecT45 TODO.
-Refer to the repositories to download them.
+All the data used is from [Cholec80](https://github.com/CAMMA-public/TF-Cholec80) and [CholecT50](https://github.com/CAMMA-public/cholect50).
+Refer to the given repositories and the [CAMMA Website](https://camma.unistra.fr/datasets/) to download and prepare each of them.
+
+The labeling pipeline expects the following folder structure:
+```text
+videos/
+├── video01/              
+│   ├── 000000.jpg
+│   └── 000001.jpg
+│   └── ...
+├── video02/              
+│   ├── 000000.jpg
+│   └── 000001.jpg
+│   └── ...
+└── ...
+```
+
+To extract individual frames at a certain frame rate use the script:
+```python tools/cholec_video_extract_parallel.py videos_in videos 1 --with_fix```
+
+And in case you have PNG files(CholecT45 dataset) use the script `labeler/to_jpg_folder.py`
+
 
 ### Automatic Labeling Pipeline
+We suggest using a different environment to avoid possible conflicts.
+1. Create the environment and install torch
+   ```bash
+    conda create --name sam2_autolabel python=3.10
+    conda activate sam2_autolabel
+    
+    pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
 
+   ``` 
+2. Install third party libraries(SAM2 and RADIO) and additional requirements
+    ```bash
+    mkdir modules && cd modules
+    git clone https://github.com/facebookresearch/sam2.git && cd sam2
+    pip install -e .
 
-Not all videos of Cholec80 were processed and used, data splits can be found in txt 
+    cd ..
 
+    git clone https://github.com/NVlabs/RADIO
+    cd ..
+
+    pip install -r requirements_labeler.txt    
+    ```
+3. Download SAM checkpoints
+    ```bash
+    cd modules/sam2/checkpoints
+    ./download_ckpts.sh
+    ```
+4. Run the automatic labeling inference pipeline on a folder of videos
+    ```bash
+    export PYTHONPATH=modules/RADIO:$PYTHONPATH
+    python labeler/dataset_track.py --sam_weights_folder modules/sam2/checkpoints --dataset_folder videos --visualize
+    ```
+After running the script the folder structure will be the following:
+```text
+videos/
+├── video01/              
+│   ├── 000000.jpg
+│   └── 000001.jpg
+│   └── ...
+├── video01_masks/              
+│   ├── 000000.pkl
+│   └── 000001.pkl
+│   └── ...
+├── video02/              
+│   ├── 000000.jpg
+│   └── 000001.jpg
+│   └── ...
+├── video02_masks/              
+│   ├── 000000.pkl
+│   └── 000001.pkl
+│   └── ...
+└── ...
+```
+Not all videos of Cholec80 were processed and used, data splits can be found in train_videos.txt and val_videos.txt.  
 
 ## File Structure
 
