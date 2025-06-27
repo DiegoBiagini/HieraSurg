@@ -1,5 +1,5 @@
 # HieraSurg: Hierarchy-Aware Diffusion Model for Surgical Video Generation
-[![arXiv](https://img.shields.io/badge/arXiv-2506.21287-B31B1B.svg)](https://arxiv.org/abs/2506.21287) [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://diegobiagini.github.io/HieraSurg/)    
+[![arXiv](https://img.shields.io/badge/arXiv-2506.21287-B31B1B.svg)](https://arxiv.org/abs/2506.21287) [![Project Page](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://diegobiagini.github.io/HieraSurg/)    
 
 Early Accepted at MICCAI 2025
 
