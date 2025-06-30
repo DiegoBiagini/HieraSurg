@@ -9,6 +9,7 @@ Once a temporal set of segmentation maps is available HieraSurg-Map2Vid is able 
 
 This repository contains the code used to train the VDMs as well as the procedure to obtain panoptic segmentation maps from Cholec80.
 
+![alt text](assets/arch.png)
 
 ## Table of Contents
 - [Features](#features)  
@@ -21,11 +22,11 @@ This repository contains the code used to train the VDMs as well as the procedur
 
 ## Features
 
-- Labeling procedure for CholecT50/Cholec80 DONE
-- Training code for HieraSurg (S2M and M2V) TODO
+- Labeling procedure for CholecT50/Cholec80
 - Inference with/without GT segmentation maps TODO (upload weights)
+- Training code for HieraSurg (S2M and M2V) TODO
 
-## Installation
+## Installation TODO
 
 1. Clone the repository  
    ```bash
@@ -42,7 +43,7 @@ This repository contains the code used to train the VDMs as well as the procedur
    pip install -r requirements.txt
    ```  
 
-## Usage
+## Usage TODO
 
 ### Training
 
