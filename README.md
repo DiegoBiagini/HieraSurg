@@ -9,7 +9,7 @@ Once a temporal set of segmentation maps is available HieraSurg-Map2Vid is able 
 
 This repository contains the code used to train the VDMs as well as the procedure to obtain panoptic segmentation maps from Cholec80.
 
-![alt text](assets/arch.png)
+![Architecture](assets/arch.png)
 
 ## Table of Contents
 - [Features](#features)  
@@ -22,30 +22,43 @@ This repository contains the code used to train the VDMs as well as the procedur
 
 ## Features
 
+
 - Labeling procedure for CholecT50/Cholec80
 - Inference with/without GT segmentation maps TODO (upload weights)
 - Training code for HieraSurg (S2M and M2V) TODO
 
 ## Installation TODO
 
-1. Clone the repository  
+1. Clone the repository and create the virtual environment
    ```bash
-   git clone https://github.com/USERNAME/REPOSITORY_NAME.git
-   cd REPOSITORY_NAME
-   ```
-2. Create a virtual environment (optional but recommended)  
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-3. Install required packages  
-   ```bash
-   pip install -r requirements.txt
-   ```  
+    git clone https://github.com/DiegoBiagini/HieraSurg
+    cd HieraSurg
 
+    conda create --name hierasurg python=3.10
+    conda activate hierasurg
+    
+    pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu118   
+   ```
+2. Install requirements
+   ```bash
+    pip install -r requirements.txt
+   ```
 ## Usage TODO
 
 ### Training
+First download the base CogVideo-T2I model and store it in...  
+Create an accelerate config file depending on your training capabilities, an example is found in `src/finetune/cfgs/accelerate_config_machine_single_2b.yaml`.
+
+#### Sem2Map
+```bash
+python scripts/train.py \
+  --config configs/train.yaml \
+  --data_dir /path/to/data \
+  --output_dir /path/to/output
+```
+
+#### Map2Vid
+Pretrain an Unconditional Generator
 
 ```bash
 python scripts/train.py \
@@ -54,15 +67,35 @@ python scripts/train.py \
   --output_dir /path/to/output
 ```
 
+Train the I2V starting from the unconditional T2V with segmap conditioning
+```bash
+python scripts/train.py \
+  --config configs/train.yaml \
+  --data_dir /path/to/data \
+  --output_dir /path/to/output
+```
 
-### Inference
 
+### Inference and evaluation
+
+For the entire pipeline
 ```bash
 python scripts/infer.py \
   --model /path/to/best_model.pth \
   --input sample_input.txt \
   --output sample_output.txt
 ```
+
+To use the ground truth as segmentation map
+```bash
+python scripts/infer.py \
+  --model /path/to/best_model.pth \
+  --input sample_input.txt \
+  --output sample_output.txt
+```
+
+For FVD/FID use the scripts ... once videos have been generated.
+Or evaluate_metrics_8fps
 
 ## Dataset
 
@@ -88,6 +121,7 @@ To extract individual frames at a certain frame rate use the script:
 
 And in case you have PNG files(CholecT45 dataset) use `labeler/to_jpg_folder.py`
 
+Take note of `annotations_path` to extract triplet and phase information from CholecT50, it is defined as `CholecT50/labels`
 
 ### Automatic Labeling Pipeline
 We suggest using a different environment to avoid possible conflicts.
