@@ -6,8 +6,7 @@ import torch
 from torchvision import transforms
 from concurrent.futures import ThreadPoolExecutor
 from diffusers import AutoencoderKLCogVideoX
-# Assumin
-# g these functions are defined elsewhere in your codebase
+
 from frame_dataset import default_loader, make_dataset_cholec, load_and_transform_frames_cholec, IMG_EXTENSIONS
 
 def compute_and_save_features(data_root, resolution, video_length, subset_split, clip_step, vae, spatial_transform="", gpu_id=0):
